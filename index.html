@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="app.css">
+    <title>Ballot System</title>
+</head>
+<body>
+    <main>
+        <div id="bg">
+            <img id="background-img" src="imgs/ballot-form.png" alt="background-img">
+        </div>
+            <form action="">
+                <div class="pres-sect">
+                    <div class="divInstruct" tabindex="0" value="pDiv" onclick="selectDiv('pDiv')"></div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="radio" name="radio-group" id="radio00" value="President1" onclick="selectPresident('President1')"></td>
+                                <td><input type="radio" name="radio-group" id="radio01" value="President2" onclick="selectPresident('President2')"></td>
+                                <td><input type="radio" name="radio-group" id="radio02" value="President3" onclick="selectPresident('President3')"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="radio-group" id="radio10" value="President4" onclick="selectPresident('President4')"></td>
+                                <td><input type="radio" name="radio-group" id="radio11" value="President5" onclick="selectPresident('President5')"></td>
+                                <td><input type="radio" name="radio-group" id="radio12" value="President6" onclick="selectPresident('President6')"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="radio-group" id="radio20" value="President7" onclick="selectPresident('President7')"></td>
+                                <td><input type="radio" name="radio-group" id="radio21" value="President8" onclick="selectPresident('President8')"></td>
+                                <td><input type="radio" name="radio-group" id="radio22" value="President9" onclick="selectPresident('President9')"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="radio-group" id="radio30" value="President10" onclick="selectPresident('President10')"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+                 <div class="vice-sect">
+                    <div class="divInstruct" tabindex="0" value="vpDiv" onclick="selectDiv('vpDiv')"></div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="radio" name="radio-group-2" id="radio00" value="vp1" onclick="selectVP('vp1')"></td>
+                                <td><input type="radio" name="radio-group-2" id="radio01" value="vp2" onclick="selectVP('vp2')"></td>
+                                <td><input type="radio" name="radio-group-2" id="radio02" value="vp3" onclick="selectVP('vp3')"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="radio-group-2" id="radio10" value="vp4" onclick="selectVP('vp4')"></td>
+                                <td><input type="radio" name="radio-group-2" id="radio11" value="vp5" onclick="selectVP('vp5')"></td>
+                                <td><input type="radio" name="radio-group-2" id="radio12" value="vp6" onclick="selectVP('vp6')"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="radio-group-2" id="radio20" value="vp7" onclick="selectVP('vp7')"></td>
+                                <td><input type="radio" name="radio-group-2" id="radio21" value="vp8" onclick="selectVP('vp8')"></td>
+                                <td><input type="radio" name="radio-group-2" id="radio22" value="vp9" onclick="selectVP('vp9')"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+                 <div class="divInstruct" tabindex="0" value="senDiv" onclick="selectDiv('senDiv')"></div>
+                 <div class="column-1">
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox00" value="sen1" onclick="selectSen('sen1')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox01" tabindex="-1"  value="sen2" onclick="selectSen('sen2')">                       
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox02" tabindex="-1" value="sen3" onclick="selectSen('sen3')">
+                    </label>
+                    
+
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox03" tabindex="-1" value="sen4" onclick="selectSen('sen4')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox04" tabindex="-1" value="sen5" onclick="selectSen('sen5')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox05" tabindex="-1" value="sen6" onclick="selectSen('sen6')">
+                    </label>
+
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox06" tabindex="-1" value="sen7" onclick="selectSen('sen7')">
+                    </label>
+
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox07" tabindex="-1" value="sen8" onclick="selectSen('sen8')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox08" tabindex="-1" value="sen9" onclick="selectSen('sen9')">
+                    </label>
+
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox09" tabindex="-1" value="sen10" onclick="selectSen('sen2')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox10" tabindex="-1" value="sen11" onclick="selectSen('sen11')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox11" tabindex="-1" value="sen12" onclick="selectSen('sen12')">
+                    </label>
+
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox12" tabindex="-1" value="sen13" onclick="selectSen('sen13')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox13" tabindex="-1" value="sen14" onclick="selectSen('sen14')">
+                    </label>
+    
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox14" tabindex="-1" value="sen15" onclick="selectSen('sen15')">
+                    </label>
+                </div>
+                <div class="column-2">
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox15" tabindex="-1" value="sen16" onclick="selectSen('sen16')">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox16" tabindex="-1" value="sen17" onclick="selectSen('sen17')">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox17" tabindex="-1" value="sen18" onclick="selectSen('sen17')">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox18" tabindex="-1" value="sen19" onclick="selectSen('sen19')">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox19" tabindex="-1" value="sen20" onclick="selectSen('sen20')">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox20" tabindex="-1" value="sen11" onclick="selectSen('sen11')">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox21" tabindex="-1" value="sen11" onclick="selectSen('sen11')">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox22" tabindex="-1" value="sen11" onclick="selectSen('sen11')">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox23" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox24" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox25" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox26" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox27" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox28" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox29" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                </div>
+                <div class="column-3">
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox30" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox31" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox32" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox33" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox34" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox35" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox36" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox37" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox38" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox39" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox40" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox41" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox42" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox43" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox44" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                </div>
+                <div class="column-4">
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox45" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox46" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox47" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox48" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox49" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox50" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox51" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox52" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox53" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox54" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox55" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox56" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox57" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox58" tabindex="-1">
+                    </label>
+        
+                    <label class="form-control">
+                        <input type="checkbox" name="senate" id="checkbox59" tabindex="-1">
+                    </label>
+                    <!-- 3 -->
+                </div>
+                <div class="submit-div">
+                    <button id="printButton" type="button" class="btn submit btn-primary" value="submit" onclick="selectBtn('submit')">Submit</button>
+                </div>
+            </form>
+            <audio id="character-audio" controls autoplay hidden></audio>
+    </main>
+    <script src="script.js"></script>
+    <script src="scriptRadio.js"></script>
+    <script src="scriptAudio.js"></script>
+</body>
+</html>
