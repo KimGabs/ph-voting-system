@@ -16,7 +16,7 @@
         <div class="icons">
             <button class="icon-button"><img class="icon" src="imgs/settings-icon.png" alt=""></button>
         </div>
-            <form action="get">
+            <form action="">
                 <div class="pres-sect">
                     <div class="divInstruct" tabindex="0" value="pDiv" onclick="selectDiv('pDiv')"></div>
                     <table>
@@ -313,7 +313,8 @@
                     </label>
                     <!-- 3 -->
                 </div>
-                <div class="submit-div">
+                <div class="botBtn-div">
+                    <button id="revalidation-button" class="btn validate btn-success" value="validate" onclick="selectBtn('validate')">Validate</button>
                     <button id="printButton" type="button" class="btn submit btn-primary" value="submit" onclick="selectBtn('submit')">Submit</button>
                 </div>
             </form>

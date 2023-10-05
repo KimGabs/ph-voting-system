@@ -290,21 +290,31 @@ input[type="radio"][name="radio-group-2"] {
 /* } */
 
   /* Submit Button */
-.submit-div{
+.botBtn-div{
     position: absolute;
     margin-top: 1220px;
-    margin-left: 42%;
+    margin-left: 40%;
     text-align: left;
 }
 
-@media screen and (min-width:1160px){
-  .submit-div{
-    margin-left: 40%;
+@media screen and (max-width:1360px){
+  .botBtn-div{
+    margin-left: 39%;
+  }
+}
+@media screen and (min-width:1090px){
+  .botBtn-div{
+    margin-left: 34%;
+  }
+}
+@media screen and (min-width:1700px){
+  .botBtn-div{
+    margin-left: 30%;
   }
 }
 
 @media print{
-  .submit-div{
+  .botBtn-div{
     display: none;
     }
 }

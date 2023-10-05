@@ -119,7 +119,6 @@ function selectDiv(divName) {
   audio.play();
 }
 
-
 // Audio for Buttons
 const Buttons = document.querySelectorAll('.btn');
 
@@ -134,7 +133,8 @@ function selectBtn(btnName) {
   const audio = document.getElementById('character-audio');
   
   const audioFiles = {
-    'submit': 'audio-resources/finish.mp3'
+    'submit': 'audio-resources/finish.mp3',
+    'validate': 'audio-resources/validate.mp3'
   };
   
   audio.src = audioFiles[btnName];
