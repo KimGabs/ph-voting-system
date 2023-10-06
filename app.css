@@ -322,13 +322,23 @@ input[type="radio"][name="radio-group-2"] {
 .icons{
   margin-left: 889px;
 }
-.icon-button{
+#icon-setting{
   position: absolute;
-  border: 0;
+  padding: 4px;
+  border: 2px solid black;
+  border-radius: 14px;
   background-color: transparent;
   margin-top: 57px;
 }
-.icon{
+#icon-question{
+  position: absolute;
+  padding: 4px;
+  border: 2px solid black;
+  border-radius: 14px;
+  background-color: transparent;
+  margin-top: 120px;
+}
+.icon-img{
   background-color: white;
   width: 46px;
   height: auto;

@@ -1,6 +1,7 @@
 console.log("script.js is working!");
 document.getElementById('background-img').ondragstart = function() { return false; };
 
+
 const radioButtons = document.querySelectorAll('input[type="radio"]');
 // radioButtons[0].focus();
 

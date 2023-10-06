@@ -14,9 +14,10 @@
             <img id="background-img" src="imgs/ballot-form.png" alt="background-img">
         </div>
         <div class="icons">
-            <button class="icon-button"><img class="icon" src="imgs/settings-icon.png" alt=""></button>
+            <button class="icon-btn" id="icon-setting" value="settings" onclick="selectIcon('settings')"><img class="icon-img" src="imgs/settings-icon.png" alt="settings"></button>
+            <button class="icon-btn" id="icon-question" value="instructions" onclick="selectIcon('instructions')"><img class="icon-img" src="imgs/question-mark.png" alt="instruction"></button>
         </div>
-            <form action="">
+            <form id="#ballot-form" action="">
                 <div class="pres-sect">
                     <div class="divInstruct" tabindex="0" value="pDiv" onclick="selectDiv('pDiv')"></div>
                     <table>
@@ -314,11 +315,15 @@
                     <!-- 3 -->
                 </div>
                 <div class="botBtn-div">
-                    <button id="revalidation-button" class="btn validate btn-success" value="validate" onclick="selectBtn('validate')">Validate</button>
+                    <button type="button" id="revalidation-button" class="btn validate btn-success">Validate</button>
                     <button id="printButton" type="button" class="btn submit btn-primary" value="submit" onclick="selectBtn('submit')">Submit</button>
                 </div>
             </form>
             <audio id="character-audio" controls autoplay hidden></audio>
+            <audio id="pres-announcement-audio" src="audio-resources/validate-1.mp3" hidden></audio>
+            <audio id="vp-announcement-audio" src="audio-resources/validate-2.mp3" hidden></audio>
+            <audio id="sen-announcement-audio" src="audio-resources/validate-3.mp3" hidden></audio>
+            <audio id="select-audio" controls hidden></audio>
     </main>
     <script src="script.js"></script>
     <script src="scriptRadio.js"></script>

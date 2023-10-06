@@ -1,5 +1,23 @@
 console.log("scriptAudio.js is working!");
 
+// Audio repeat
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'r' || event.key === 'R') {
+    repeatAudio();
+  }
+});
+
+function repeatAudio() {
+  if (!audio.paused) {
+    // Pause and reset the audio to the beginning
+    audio.pause();
+    audio.currentTime = 0;
+    
+    // Play the audio again
+    audio.play();
+  }
+}
+
 // President audio
 const presidentRadios = document.querySelectorAll('input[name="radio-group"]');
 
@@ -73,7 +91,6 @@ senCheckboxes.forEach((checkbox) => {
   });
 });
 
-
 function selectSen(vpName) {
     const audio = document.getElementById('character-audio');
     
@@ -94,7 +111,6 @@ function selectSen(vpName) {
     audio.src = audioFiles[vpName];
     audio.play();
 }
-
 
 // Audio Instruction
 const presidentDivs = document.querySelectorAll('.divInstruct');
@@ -119,7 +135,7 @@ function selectDiv(divName) {
   audio.play();
 }
 
-// Audio for Buttons
+// Audio for bottom buttons
 const Buttons = document.querySelectorAll('.btn');
 
 Buttons.forEach((btn) => {
@@ -138,6 +154,130 @@ function selectBtn(btnName) {
   };
   
   audio.src = audioFiles[btnName];
+  audio.pause();
   audio.play();
 }
 
+// Audio for icons buttons
+const iconBtns = document.querySelectorAll('.icon-btn');
+  iconBtns.forEach((icon) => {
+    icon.addEventListener('focus', () => {
+    const selectedIcon = icon.getAttribute('value');
+    selectIcon(selectedIcon);
+  });
+});
+
+function selectIcon(btnName) {
+const audio = document.getElementById('character-audio');
+
+const audioFiles = {
+  // 'settings': 'audio-resources/finish.mp3',
+  'instructions': 'audio-resources/instructions.mp3'
+};
+
+audio.src = audioFiles[btnName];
+audio.play();
+}
+
+
+const allRadios = document.querySelectorAll('input');
+allRadios.forEach((radio) => {
+  radio.addEventListener('click', () => {
+    const selectAudio = document.getElementById('select-audio');
+    if (radio.checked) {
+      playCheckedAudio(selectAudio);
+    } else {
+      playUncheckedAudio(selectAudio);
+    }
+  });
+});
+
+function playCheckedAudio(selectAudio) {
+  selectAudio.src = 'audio-resources/select.mp3';
+    stopAudio(); // Stop any currently playing audio
+    selectAudio.play();
+}
+
+function playUncheckedAudio(selectAudio) {
+  selectAudio.src = 'audio-resources/deselect.mp3';
+    stopAudio(); // Stop any currently playing audio
+    selectAudio.play();
+}
+
+// Function to stop the audio playback
+function stopAudio() {
+  if (!audio.paused) {
+    audio.pause();
+    audio.currentTime = 0; // Reset the audio to the beginning
+  }
+}
+
+
+// Get the revalidation button
+const revalidationButton = document.getElementById('revalidation-button');
+
+// Add a click event listener to the revalidation button
+revalidationButton.addEventListener('click', () => {
+  // Get all selected radio buttons with class "president"
+  const selectedPres = document.querySelectorAll('input[name="radio-group"]:checked');
+  const selectedVP = document.querySelectorAll('input[name="radio-group-2"]:checked');
+  const selectedSen = document.querySelectorAll('input[name="senate"]:checked');
+
+  // Play pre-announcement audio
+  announcePres();
+
+  // Delay the announcement of character names
+  setTimeout(() => {
+    selectedPres.forEach((radio) => {
+      const pres = radio.value;
+      selectPresident(pres);
+    });
+  }, 3150);
+
+  setTimeout(() => {
+    announceVP();
+  }, 7400);
+
+
+  setTimeout(() => {
+    selectedVP.forEach((radio) => {
+      const vp = radio.value;
+      selectVP(vp);
+    });
+  }, 10650);
+  
+
+  setTimeout(() => {
+    announceSen();
+  }, 15500);
+
+  setTimeout(() => {
+    // Announce each character's name
+  selectedSen.forEach((radio, index) => {
+    const sen = radio.value;
+    
+    // Delay the announcement for each character to avoid overlap
+    setTimeout(() => {
+      selectSen(sen);
+    }, index * 5000); // Adjust the delay time as needed (in milliseconds)
+  });
+  }, 19500);
+  
+
+});
+
+// Function to play pre-announcement audio
+function announcePres() {
+  const presAudio = document.getElementById('pres-announcement-audio');
+  presAudio.play();
+}
+
+function announceVP() {
+  const vpAudio = document.getElementById('vp-announcement-audio');
+  vpAudio.play();
+}
+
+function announceSen() {
+  const senAudio = document.getElementById('sen-announcement-audio');
+  senAudio.play();
+}
