@@ -260,9 +260,9 @@ revalidationButton.addEventListener('click', () => {
   timeouts.push(setTimeout(() => {
   selectedSen.forEach((radio, index) => {
     const sen = radio.value;
-    setTimeout(() => {
+    timeouts.push(setTimeout(() => {
       selectSen(sen);
-    }, index * 5000); 
+    }, index * 5000)); 
   });
   }, 19000));
   

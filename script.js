@@ -3,13 +3,11 @@ document.getElementById('background-img').ondragstart = function() { return fals
 
 
 const radioButtons = document.querySelectorAll('input[type="radio"]');
-// radioButtons[0].focus();
 
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 let currentIndex = 0;
 let checkedCount = 0;
 const maxChecked = 12; // Maximum allowed checked checkboxes
-
 
 // Checkbox
 function handleArrowKey(event) {
@@ -26,14 +24,13 @@ function handleArrowKey(event) {
     checkboxes[currentIndex].focus();
 }
 
-const audio = document.getElementById('character-audio');
+const audio = document.getElementById('speech-audio');
 checkboxes.forEach((checkbox, index) => {
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
             checkedCount += 1;
             if (checkedCount > maxChecked) {
                 audio.src = 'audio-resources/limit-alert.mp3';
-  
                 audio.play();
 
                 checkbox.checked = false;
