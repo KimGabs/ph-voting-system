@@ -52,10 +52,35 @@ checkboxes.forEach((checkbox, index) => {
     });
 });
 
-
 // print/submit button
 const printButton = document.getElementById('printButton');
     printButton.addEventListener('click', () => {
         window.print(); 
     });
 
+// Setting icon button
+let audioSpeedRate = 1;
+const audioTest = document.querySelector('.speedcontrolcontainer  audio');
+const playbackrate = document.querySelector('.speedcontrolcontainer input');
+const display = document.querySelector('.speedcontrolcontainer span');
+const displayvalue = val => {
+  return parseInt(val * 100, 10) + '%'
+}
+
+if (window.localStorage.pbspeed) {
+    audioTest.playbackRate = window.localStorage.pbspeed;
+    playbackrate.value = window.localStorage.pbspeed;
+}
+    display.innerText = displayvalue(audioTest.playbackRate);
+
+playbackrate.addEventListener('change', e => {
+    audioTest.playbackRate = playbackrate.value;
+    audioSpeedRate = playbackrate.value;
+    display.innerText = displayvalue(playbackrate.value);
+    window.localStorage.pbspeed = playbackrate.value;
+});
+
+// const settings = document.getElementById('icon-setting');
+//     settings.addEventListener('click', () => {
+//         audioSpeedRate = 0.8;
+//     })

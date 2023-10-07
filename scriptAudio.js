@@ -1,5 +1,4 @@
 console.log("scriptAudio.js is working!");
-
 // Audio repeat
 document.addEventListener('keydown', (event) => {
   if (event.key === 'r' || event.key === 'R') {
@@ -9,6 +8,7 @@ document.addEventListener('keydown', (event) => {
 
 function repeatAudio() {
   const audio = document.getElementById('speech-audio');
+  audio.playbackRate =  audioSpeedRate;
   if (!audio.paused) {
     audio.pause(); // Pause and reset the audio to the beginning
     audio.currentTime = 0;
@@ -45,6 +45,7 @@ function selectPresident(presidentName) {
     
     // Set the audio source and play it
     audio.src = audioFiles[presidentName];
+    audio.playbackRate = audioSpeedRate;
     audio.play();
 }
 // Vice president audio
@@ -76,6 +77,7 @@ function selectVP(vpName) {
     
     // Set the audio source and play it
     audio.src = audioFiles[vpName];
+    audio.playbackRate = audioSpeedRate;
     audio.play();
 }
 
@@ -89,7 +91,7 @@ senCheckboxes.forEach((checkbox) => {
   });
 });
 
-function selectSen(vpName) {
+function selectSen(senName) {
     const audio = document.getElementById('speech-audio');
     
     const audioFiles = {
@@ -116,7 +118,8 @@ function selectSen(vpName) {
     };
     
     // Set the audio source and play it
-    audio.src = audioFiles[vpName];
+    audio.src = audioFiles[senName];
+    audio.playbackRate = audioSpeedRate;
     audio.play();
 }
 
@@ -140,6 +143,7 @@ function selectDiv(divName) {
   };
   
   audio.src = audioFiles[divName];
+  audio.playbackRate = audioSpeedRate;
   audio.play();
 }
 
@@ -162,6 +166,7 @@ function selectBtn(btnName) {
   };
   
   audio.src = audioFiles[btnName];
+  audio.playbackRate = audioSpeedRate;
   stopAudio();
   audio.play();
 }
@@ -184,12 +189,13 @@ const audioFiles = {
 };
 
   audio.src = audioFiles[btnName];
+  audio.playbackRate = audioSpeedRate;
   stopAudio();
   audio.play();
 }
 
 
-const allRadios = document.querySelectorAll('input');
+const allRadios = document.querySelectorAll('input:not([type="range"])');
 allRadios.forEach((radio) => {
   radio.addEventListener('click', () => {
     const audio = document.getElementById('speech-audio');
@@ -260,22 +266,24 @@ revalidationButton.addEventListener('click', () => {
   });
   }, 19000));
   
-  // revalidationButton.disabled = false;
 });
 
 // Function to play pre-announcement audio
 function announcePres(audio) {
   audio.src = 'audio-resources/validate-1.mp3';
+  audio.playbackRate = audioSpeedRate;
   audio.play();
 }
 
 function announceVP(audio) {
   audio.src = 'audio-resources/validate-2.mp3';
+  audio.playbackRate = audioSpeedRate;
   audio.play();
 }
 
 function announceSen(audio) {
   audio.src = 'audio-resources/validate-3.mp3';
+  audio.playbackRate = audioSpeedRate;
   audio.play();
 }
 
