@@ -8,12 +8,10 @@ document.addEventListener('keydown', (event) => {
 });
 
 function repeatAudio() {
+  const audio = document.getElementById('speech-audio');
   if (!audio.paused) {
-    // Pause and reset the audio to the beginning
-    audio.pause();
+    audio.pause(); // Pause and reset the audio to the beginning
     audio.currentTime = 0;
-    
-    // Play the audio again
     audio.play();
   }
 }
@@ -30,7 +28,7 @@ presidentRadios.forEach((radio) => {
 
 
 function selectPresident(presidentName) {
-    const audio = document.getElementById('character-audio');
+    const audio = document.getElementById('speech-audio');
     
     const audioFiles = {
         'President1': 'audio-resources/pres1.mp3',
@@ -62,7 +60,7 @@ vpRadios.forEach((radio) => {
 
 
 function selectVP(vpName) {
-    const audio = document.getElementById('character-audio');
+    const audio = document.getElementById('speech-audio');
     
     const audioFiles = {
         'vp1': 'audio-resources/vp1.mp3',
@@ -92,7 +90,7 @@ senCheckboxes.forEach((checkbox) => {
 });
 
 function selectSen(vpName) {
-    const audio = document.getElementById('character-audio');
+    const audio = document.getElementById('speech-audio');
     
     const audioFiles = {
         'sen1': 'audio-resources/sen1.mp3',
@@ -104,7 +102,17 @@ function selectSen(vpName) {
         'sen7': 'audio-resources/sen7.mp3',
         'sen8': 'audio-resources/sen8.mp3',
         'sen9': 'audio-resources/sen9.mp3',
-        'sen10': 'audio-resources/sen10.mp3'
+        'sen10': 'audio-resources/sen10.mp3',
+        'sen11': 'audio-resources/sen11.mp3',
+        'sen12': 'audio-resources/sen12.mp3',
+        'sen13': 'audio-resources/sen13.mp3',
+        'sen14': 'audio-resources/sen14.mp3',
+        'sen15': 'audio-resources/sen15.mp3',
+        'sen16': 'audio-resources/sen16.mp3',
+        'sen17': 'audio-resources/sen17.mp3',
+        'sen18': 'audio-resources/sen18.mp3',
+        'sen19': 'audio-resources/sen19.mp3',
+        'sen20': 'audio-resources/sen20.mp3'
     };
     
     // Set the audio source and play it
@@ -123,7 +131,7 @@ presidentDivs.forEach((div) => {
 });
 
 function selectDiv(divName) {
-  const audio = document.getElementById('character-audio');
+  const audio = document.getElementById('speech-audio');
   
   const audioFiles = {
     'pDiv': 'audio-resources/instruction-president.mp3',
@@ -146,7 +154,7 @@ Buttons.forEach((btn) => {
 });
 
 function selectBtn(btnName) {
-  const audio = document.getElementById('character-audio');
+  const audio = document.getElementById('speech-audio');
   
   const audioFiles = {
     'submit': 'audio-resources/finish.mp3',
@@ -154,7 +162,7 @@ function selectBtn(btnName) {
   };
   
   audio.src = audioFiles[btnName];
-  audio.pause();
+  stopAudio();
   audio.play();
 }
 
@@ -168,116 +176,118 @@ const iconBtns = document.querySelectorAll('.icon-btn');
 });
 
 function selectIcon(btnName) {
-const audio = document.getElementById('character-audio');
+const audio = document.getElementById('speech-audio');
 
 const audioFiles = {
-  // 'settings': 'audio-resources/finish.mp3',
+  // 'settings': 'audio-resources/.mp3',
   'instructions': 'audio-resources/instructions.mp3'
 };
 
-audio.src = audioFiles[btnName];
-audio.play();
+  audio.src = audioFiles[btnName];
+  stopAudio();
+  audio.play();
 }
 
 
 const allRadios = document.querySelectorAll('input');
 allRadios.forEach((radio) => {
   radio.addEventListener('click', () => {
-    const selectAudio = document.getElementById('select-audio');
+    const audio = document.getElementById('speech-audio');
     if (radio.checked) {
-      playCheckedAudio(selectAudio);
+      playCheckedAudio(audio);
     } else {
-      playUncheckedAudio(selectAudio);
+      playUncheckedAudio(audio);
     }
   });
 });
 
-function playCheckedAudio(selectAudio) {
-  selectAudio.src = 'audio-resources/select.mp3';
+function playCheckedAudio(audio) {
+  audio.src = 'audio-resources/select.mp3';
     stopAudio(); // Stop any currently playing audio
-    selectAudio.play();
+    audio.play();
 }
 
-function playUncheckedAudio(selectAudio) {
-  selectAudio.src = 'audio-resources/deselect.mp3';
+function playUncheckedAudio(audio) {
+  audio.src = 'audio-resources/deselect.mp3';
     stopAudio(); // Stop any currently playing audio
-    selectAudio.play();
+    audio.play();
 }
-
-// Function to stop the audio playback
-function stopAudio() {
-  if (!audio.paused) {
-    audio.pause();
-    audio.currentTime = 0; // Reset the audio to the beginning
-  }
-}
-
 
 // Get the revalidation button
 const revalidationButton = document.getElementById('revalidation-button');
+let timeouts = [];
 
 // Add a click event listener to the revalidation button
 revalidationButton.addEventListener('click', () => {
+
+  timeouts.forEach((timeoutId) => {
+    clearTimeout(timeoutId);
+  });
+  timeouts = [];
+
   // Get all selected radio buttons with class "president"
   const selectedPres = document.querySelectorAll('input[name="radio-group"]:checked');
   const selectedVP = document.querySelectorAll('input[name="radio-group-2"]:checked');
   const selectedSen = document.querySelectorAll('input[name="senate"]:checked');
-
-  // Play pre-announcement audio
-  announcePres();
-
-  // Delay the announcement of character names
-  setTimeout(() => {
+  const audio = document.getElementById('speech-audio');
+  
+  // Validation audio
+  announcePres(audio);
+  timeouts.push(setTimeout(() => {
     selectedPres.forEach((radio) => {
       const pres = radio.value;
       selectPresident(pres);
     });
-  }, 3150);
-
-  setTimeout(() => {
-    announceVP();
-  }, 7400);
-
-
-  setTimeout(() => {
+  }, 3150));
+  timeouts.push(setTimeout(() => {
+    announceVP(audio);
+  }, 7400));
+  timeouts.push(setTimeout(() => {
     selectedVP.forEach((radio) => {
       const vp = radio.value;
       selectVP(vp);
     });
-  }, 10650);
-  
-
-  setTimeout(() => {
-    announceSen();
-  }, 15500);
-
-  setTimeout(() => {
-    // Announce each character's name
+  }, 10650));
+  timeouts.push(setTimeout(() => {
+    announceSen(audio);
+  }, 15500));
+  timeouts.push(setTimeout(() => {
   selectedSen.forEach((radio, index) => {
     const sen = radio.value;
-    
-    // Delay the announcement for each character to avoid overlap
     setTimeout(() => {
       selectSen(sen);
-    }, index * 5000); // Adjust the delay time as needed (in milliseconds)
+    }, index * 5000); 
   });
-  }, 19500);
+  }, 19000));
   
-
+  // revalidationButton.disabled = false;
 });
 
 // Function to play pre-announcement audio
-function announcePres() {
-  const presAudio = document.getElementById('pres-announcement-audio');
-  presAudio.play();
+function announcePres(audio) {
+  audio.src = 'audio-resources/validate-1.mp3';
+  audio.play();
 }
 
-function announceVP() {
-  const vpAudio = document.getElementById('vp-announcement-audio');
-  vpAudio.play();
+function announceVP(audio) {
+  audio.src = 'audio-resources/validate-2.mp3';
+  audio.play();
 }
 
-function announceSen() {
-  const senAudio = document.getElementById('sen-announcement-audio');
-  senAudio.play();
+function announceSen(audio) {
+  audio.src = 'audio-resources/validate-3.mp3';
+  audio.play();
+}
+
+// Function to stop the audio playback
+function stopAudio() {
+  // Interrupt validation
+  timeouts.forEach((timeoutId) => {
+    clearTimeout(timeoutId);
+  });
+  timeouts = [];
+  if (!audio.paused) {
+    audio.pause();
+    audio.currentTime = 0; // Reset the audio to the beginning
+  }
 }

@@ -70,21 +70,21 @@ form {
     text-align: center;
     position: absolute;
     margin-top: 711px;
-    margin-left: 276px;
+    margin-left: 278.5px;
   }
 
   .column-3{
     text-align: center;
     position: absolute;
     margin-top: 711px;
-    margin-left: 498px;
+    margin-left: 498.5px;
   }
 
   .column-4{
     text-align: center;
     position: absolute;
     margin-top: 711px;
-    margin-left: 719.5px;
+    margin-left: 717.5px;
   }
 
   .form-control {
@@ -96,7 +96,7 @@ form {
     /* grid-template-columns: 1em auto; */
     gap: 1.2em;
     background:none;
-    padding-top: 5px;
+    padding-top: 5.15px;
   }
   
   .form-control + .form-control {
@@ -121,8 +121,8 @@ form {
     font: inherit;
     color: currentColor;
     width: 21.15px;
-    height: 18.15px;
-    border: 0.15em solid currentColor;
+    height: 18px;
+    border: 0.09em solid currentColor;
     border-radius: 50%;
     transform: translateY(-0.075em);
   
@@ -188,7 +188,7 @@ input[type="radio"][name="radio-group-2"] {
 .pres-sect{
     position: absolute;
     margin-top: 475px;
-    margin-left: 69.5px;
+    margin-left: 70.5px;
 }
 
 input[type="radio"][name="radio-group"] {
@@ -222,7 +222,7 @@ input[type="radio"][name="radio-group-2"] {
     color: currentColor;
     width: 21.15px;
     height: 18.15px;
-    border: 0.15em solid currentColor;
+    border: 0.09em solid currentColor;
     border-radius: 50%;
     transform: translateY(-0.075em);
   
@@ -342,6 +342,12 @@ input[type="radio"][name="radio-group-2"] {
   background-color: white;
   width: 46px;
   height: auto;
+}
+
+@media print{
+  .icons{
+    display: none;
+  }
 }
 
 
