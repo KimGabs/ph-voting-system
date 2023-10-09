@@ -77,7 +77,14 @@ playbackrate.addEventListener('change', e => {
     window.localStorage.pbspeed = playbackrate.value;
 });
 
-// const settings = document.getElementById('icon-setting');
-//     settings.addEventListener('click', () => {
-//         audioSpeedRate = 0.8;
-//     })
+// Add an event listener to capture the "Enter" key press
+const radioAndCheckboxes = document.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+
+radioAndCheckboxes.forEach((element) => {
+    element.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default behavior (form submission)
+            element.click(); // Simulate a click on the element
+        }
+    });
+});
