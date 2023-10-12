@@ -1,7 +1,6 @@
 console.log("script.js is working!");
 document.getElementById('background-img').ondragstart = function() { return false; };
 
-
 const radioButtons = document.querySelectorAll('input[type="radio"]');
 
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -11,18 +10,21 @@ const maxChecked = 12; // Maximum allowed checked checkboxes
 
 // Checkbox
 function handleArrowKey(event) {
-    if (event.key === 'ArrowUp' && currentIndex > 0) {
+    if (event.key === 'ArrowUp' && !event.shiftKey && currentIndex > 0) {
         currentIndex -= 1;
-    } else if (event.key === 'ArrowDown' && currentIndex < checkboxes.length - 1) {
+    } else if (event.key === 'ArrowDown' && !event.shiftKey && currentIndex < checkboxes.length - 1) {
         currentIndex += 1;
-    } else if (event.key === 'ArrowLeft' && currentIndex >= 4) {
-        currentIndex -= 4;
-    } else if (event.key === 'ArrowRight' && currentIndex < checkboxes.length - 4) {
-        currentIndex += 4;
+    } else if (event.shiftKey) {
+        if (event.key === 'ArrowUp' && currentIndex >= 5) {
+            currentIndex -= 5;
+        } else if (event.key === 'ArrowDown' && currentIndex < checkboxes.length - 5) {
+            currentIndex += 5;
+        }
     }
 
     checkboxes[currentIndex].focus();
 }
+
 
 const audio = document.getElementById('speech-audio');
 checkboxes.forEach((checkbox, index) => {
