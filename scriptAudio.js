@@ -224,7 +224,7 @@ function selectIcon(btnName) {
 const audio = document.getElementById('speech-audio');
 
 const audioFiles = {
-  'instructions': 'audio-resources/instructions.mp3'
+  'instructions': 'audio-resources/instructions/instruction.mp3'
 };
 
   audio.src = audioFiles[btnName];
