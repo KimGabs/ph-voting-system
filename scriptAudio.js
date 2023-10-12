@@ -184,7 +184,6 @@ function selectIcon(btnName) {
 const audio = document.getElementById('speech-audio');
 
 const audioFiles = {
-  // 'settings': 'audio-resources/.mp3',
   'instructions': 'audio-resources/instructions.mp3'
 };
 
@@ -193,7 +192,12 @@ const audioFiles = {
   stopAudio();
   audio.play();
 }
-
+// Reread instruction function
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'e') {
+      selectIcon('instructions');
+  }
+});
 
 const allRadios = document.querySelectorAll('input:not([type="range"])');
 allRadios.forEach((radio) => {
