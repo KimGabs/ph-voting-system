@@ -297,10 +297,10 @@ revalidationButton.addEventListener('click', () => {
       const vp = radio.value;
       selectVP(vp);
     });
-  }, 12550));
+  }, 14550));
   timeouts.push(setTimeout(() => {
     announceSen(audio);
-  }, 18500));
+  }, 19500));
   timeouts.push(setTimeout(() => {
   selectedSen.forEach((radio, index) => {
     const sen = radio.value;
@@ -308,7 +308,7 @@ revalidationButton.addEventListener('click', () => {
       selectSen(sen);
     }, index * 5000)); 
   });
-  }, 22000));
+  }, 24000));
   
 });
 
