@@ -6,6 +6,12 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+document.addEventListener('keydown', (event) => {
+  if (event.shiftKey && (event.key === 'r' || event.key === 'R')) {
+    selectIcon('instructions');
+  }
+});
+
 function repeatAudio() {
   const audio = document.getElementById('speech-audio');
   audio.playbackRate =  audioSpeedRate;
@@ -232,12 +238,6 @@ const audioFiles = {
   stopAudio();
   audio.play();
 }
-// Reread instruction function
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'e') {
-      selectIcon('instructions');
-  }
-});
 
 const allRadios = document.querySelectorAll('input:not([type="range"])');
 allRadios.forEach((radio) => {
