@@ -288,10 +288,10 @@ revalidationButton.addEventListener('click', () => {
       const pres = radio.value;
       selectPresident(pres);
     });
-  }, 3150));
+  }, 4150));
   timeouts.push(setTimeout(() => {
     announceVP(audio);
-  }, 8400));
+  }, 9400));
   timeouts.push(setTimeout(() => {
     selectedVP.forEach((radio) => {
       const vp = radio.value;
@@ -300,7 +300,7 @@ revalidationButton.addEventListener('click', () => {
   }, 12550));
   timeouts.push(setTimeout(() => {
     announceSen(audio);
-  }, 17500));
+  }, 18500));
   timeouts.push(setTimeout(() => {
   selectedSen.forEach((radio, index) => {
     const sen = radio.value;
@@ -308,7 +308,7 @@ revalidationButton.addEventListener('click', () => {
       selectSen(sen);
     }, index * 5000)); 
   });
-  }, 21000));
+  }, 22000));
   
 });
 
